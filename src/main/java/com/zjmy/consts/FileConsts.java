@@ -16,4 +16,8 @@ public class FileConsts {
     public static final String FONT_HEI = "simhei.ttf";
 
     public static final String HTML = "F:\\ideaProject\\pdf\\src\\main\\resource\\template.html";
+
+    public static final String FREEMARKER_DIR = "F:\\ideaProject\\pdf\\src\\main\\resource";
+
+    public static final String FREEMARKER_NAME = "template.ftl";
 }

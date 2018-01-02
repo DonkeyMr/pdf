@@ -31,5 +31,10 @@
       <artifactId>xmlworker</artifactId>
       <version>5.5.11</version>
     </dependency>
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.19</version>
+    </dependency>
   </dependencies>
 </project>
