@@ -3,7 +3,7 @@ package com.zjmy.pdf;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.CMYKColor;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.zjmy.util.FilePath;
+import com.zjmy.consts.FileConsts;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -17,7 +17,7 @@ public class TextToPdf {
 
     public static void textToPdf() throws FileNotFoundException, DocumentException {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
-        PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FilePath.TEXT_PDF));
+        PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FileConsts.TEXT_PDF));
         document.open();
         //任何文本都借助 com.itextpdf.text.Paragraph 来进行添加
         document.add(new Paragraph("hello world"));
@@ -27,7 +27,7 @@ public class TextToPdf {
 
     public static void textToPdf2() throws FileNotFoundException, DocumentException {
         Document document = new Document(PageSize.A4, 50, 50, 50, 50);
-        PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FilePath.TEXT_PDF));
+        PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FileConsts.TEXT_PDF));
         document.open();
         Font titleFont = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD, new CMYKColor(0, 255, 255, 17));
         Paragraph title = new Paragraph("chapter 1", titleFont);

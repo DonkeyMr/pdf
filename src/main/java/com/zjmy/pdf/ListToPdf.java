@@ -5,7 +5,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.zjmy.util.FilePath;
+import com.zjmy.consts.FileConsts;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,7 +14,7 @@ public class ListToPdf {
 
     public static void main(String[] args) throws FileNotFoundException, DocumentException {
         Document document = new Document();
-        PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FilePath.TEXT_PDF));
+        PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FileConsts.TEXT_PDF));
         document.open();
 
         //将第一个参数作为 true 传送，表明创建带编号的列表
