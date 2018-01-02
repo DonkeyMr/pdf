@@ -17,10 +17,10 @@ public class TableToPdf {
         Document document = new Document();
         PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FileConsts.TEXT_PDF));
         document.open();
+
         PdfPTable table = new PdfPTable(3);
         //table.setSpacingBefore(20);
         //table.setSpacingAfter(20);
-
         PdfPCell cell = new PdfPCell(new Paragraph("name"));
         table.addCell(cell);
         table.addCell("sex");
@@ -31,6 +31,5 @@ public class TableToPdf {
 
         document.add(table);
         document.close();
-        pdfWriter.close();
     }
 }

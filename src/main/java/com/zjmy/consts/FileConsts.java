@@ -14,4 +14,6 @@ public class FileConsts {
      * 黑体
      */
     public static final String FONT_HEI = "simhei.ttf";
+
+    public static final String HTML = "F:\\ideaProject\\pdf\\src\\main\\resource\\template.html";
 }

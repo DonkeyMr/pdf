@@ -40,6 +40,5 @@ public class UrlToPdf {
         document.add(inside);
 
         document.close();
-        pdfWriter.close();
     }
 }

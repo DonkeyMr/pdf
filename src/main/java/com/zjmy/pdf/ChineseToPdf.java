@@ -27,6 +27,5 @@ public class ChineseToPdf {
         document.add(paragraph);
 
         document.close();
-        pdfWriter.close();
     }
 }

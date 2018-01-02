@@ -22,6 +22,5 @@ public class ImageToPdf {
         document.add(image);
 
         document.close();
-        pdfWriter.close();
     }
 }

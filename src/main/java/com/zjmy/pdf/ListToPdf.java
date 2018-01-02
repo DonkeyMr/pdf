@@ -24,6 +24,5 @@ public class ListToPdf {
         document.add(list);
 
         document.close();
-        pdfWriter.close();
     }
 }

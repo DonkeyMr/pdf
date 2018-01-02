@@ -46,6 +46,5 @@ public class TextToPdf {
 
         document.add(chapter1);
         document.close();
-        pdfWriter.close();
     }
 }
