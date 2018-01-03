@@ -1,0 +1,4 @@
+定义字段样式的两种方式：
+Font font = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD, new CMYKColor(0, 255, 255, 17));
+
+Font font = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, GrayColor.BLUE);
