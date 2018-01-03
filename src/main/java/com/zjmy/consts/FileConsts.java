@@ -24,4 +24,8 @@ public class FileConsts {
     public static final String FREEMARKER_NAME = "template.ftl";
 
     public static final String FREEMARKER_CSS_NAME = "templateCss.ftl";
+
+    public static final String IMAGE_FORMAT = "png";
+
+    public static final String IMAGE_SAVE = "target/cherry.png";
 }

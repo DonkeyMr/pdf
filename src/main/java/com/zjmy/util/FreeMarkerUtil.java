@@ -81,4 +81,38 @@ public class FreeMarkerUtil {
         renderer.layout();
         renderer.createPDF(new FileOutputStream(FileConsts.TEXT_PDF));
     }
+
+    /**
+     * 根据freemarker模板生成pdf文件流
+     */
+    public static ByteArrayOutputStream getPdfOutputStream(String content) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ITextRenderer renderer = new ITextRenderer();
+        ITextFontResolver fontResolver = renderer.getFontResolver();
+        try {
+            fontResolver.addFont(FileConsts.FONT_HEI, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+        } catch (com.lowagie.text.DocumentException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //解析html生成pdf
+        renderer.setDocumentFromString(content);
+        //解决图片相对路径问题
+        renderer.getSharedContext().setBaseURL("file:///" + FileConsts.IMAGE);
+        renderer.layout();
+        try {
+            renderer.createPDF(outputStream);
+            return outputStream;
+        } catch (com.lowagie.text.DocumentException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
 }
