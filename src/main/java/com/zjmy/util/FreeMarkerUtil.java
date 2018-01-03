@@ -2,6 +2,7 @@ package com.zjmy.util;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerFontProvider;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
@@ -9,6 +10,8 @@ import com.zjmy.consts.FileConsts;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.xhtmlrenderer.pdf.ITextFontResolver;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -43,6 +46,10 @@ public class FreeMarkerUtil {
         return null;
     }
 
+    /**
+     * freemarker生成pdf
+     * @param content html字符流
+     */
     public static void createPdf(String content) throws IOException, DocumentException {
         Document document = new Document();
         PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FileConsts.TEXT_PDF));
@@ -54,5 +61,24 @@ public class FreeMarkerUtil {
                 Charset.forName("UTF-8"), fontProvider);
 
         document.close();
+    }
+
+    /**
+     * 含有CSS高级样式的freemarker生成pdf
+     * @param content html字符流
+     * 1.在某些场景下，html中的静态资源是在本地，我们可以使用render.getSharedContext().setBaseURL()加载文件资源,
+     *   注意资源URL需要使用文件协议 “file:///”
+     * 2.对于生成的pdf页面大小，可以用css的@page属性设置。
+     */
+    public static void createCssPdf(String content) throws IOException, com.lowagie.text.DocumentException {
+        ITextRenderer renderer = new ITextRenderer();
+        ITextFontResolver fontResolver = renderer.getFontResolver();
+        fontResolver.addFont(FileConsts.FONT_HEI, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+        // 解析html生成pdf
+        renderer.setDocumentFromString(content);
+        //解决图片相对路径的问题
+        renderer.getSharedContext().setBaseURL("file:///" + FileConsts.IMAGE);
+        renderer.layout();
+        renderer.createPDF(new FileOutputStream(FileConsts.TEXT_PDF));
     }
 }

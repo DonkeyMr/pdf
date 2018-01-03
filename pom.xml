@@ -26,6 +26,7 @@
       <artifactId>itextpdf</artifactId>
       <version>5.5.11</version>
     </dependency>
+    <!-- html转pdf -->
     <dependency>
       <groupId>com.itextpdf.tool</groupId>
       <artifactId>xmlworker</artifactId>
@@ -35,6 +36,17 @@
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
       <version>2.3.19</version>
+    </dependency>
+    <!-- Flying Saucer是基于iText的，支持对CSS高级特性的解析 -->
+    <dependency>
+       <groupId>org.xhtmlrenderer</groupId>
+       <artifactId>flying-saucer-pdf</artifactId>
+       <version>9.1.5</version>
+      </dependency>
+    <dependency>
+        <groupId>org.xhtmlrenderer</groupId>
+        <artifactId>flying-saucer-pdf-itext5</artifactId>
+        <version>9.1.5</version>
     </dependency>
   </dependencies>
 </project>
