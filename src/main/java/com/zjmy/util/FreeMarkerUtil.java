@@ -21,7 +21,7 @@ public class FreeMarkerUtil {
         Configuration cfg = new Configuration();
         try {
             //freemarker的模板目录
-            cfg.setDirectoryForTemplateLoading(new File(FileConsts.FREEMARKER_DIR));
+            cfg.setDirectoryForTemplateLoading(new File(FileConsts.ROOT_DIR));
             // 获取模板,并设置编码方式
             Template template = cfg.getTemplate(ftlName);
             template.setEncoding("UTF-8");

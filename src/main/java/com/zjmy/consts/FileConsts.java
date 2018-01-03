@@ -2,6 +2,8 @@ package com.zjmy.consts;
 
 public class FileConsts {
 
+    public static final String ROOT_DIR = "F:\\ideaProject\\pdf\\src\\main\\resource\\";
+
     public static final String TEXT_PDF = "target/text.pdf";
 
     /**
@@ -15,9 +17,9 @@ public class FileConsts {
      */
     public static final String FONT_HEI = "simhei.ttf";
 
-    public static final String HTML = "F:\\ideaProject\\pdf\\src\\main\\resource\\template.html";
+    public static final String IMAGE = ROOT_DIR + "cherry.jpg";
 
-    public static final String FREEMARKER_DIR = "F:\\ideaProject\\pdf\\src\\main\\resource";
+    public static final String HTML = ROOT_DIR + "template.html";
 
     public static final String FREEMARKER_NAME = "template.ftl";
 }

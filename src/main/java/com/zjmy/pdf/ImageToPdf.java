@@ -16,7 +16,7 @@ public class ImageToPdf {
         PdfWriter pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(FileConsts.TEXT_PDF));
         document.open();
 
-        Image image = Image.getInstance("F:\\ideaProject\\pdf\\src\\main\\resource\\cherry.jpg");
+        Image image = Image.getInstance(FileConsts.IMAGE);
         //图片大小
         image.scaleAbsolute(120f, 120f);
         document.add(image);
